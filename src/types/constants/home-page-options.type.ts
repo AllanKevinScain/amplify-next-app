@@ -1,0 +1,1 @@
+export type HomePageOptionsType = {url: string, name: string}
