@@ -1,1 +1,1 @@
-export * from "./list-characters";
+export * from "./character";

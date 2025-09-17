@@ -1,10 +1,19 @@
 import { listCharacters } from "@/app/actions";
-import { getQueryClient } from "@/helpers";
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
 import { ClientPageCharacters } from "./client-page";
 
 export default async function CharactersPage() {
-  const queryClient = getQueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 5,
+      },
+    },
+  });
 
   await queryClient.prefetchQuery({
     queryKey: ["characters-next-calls"],

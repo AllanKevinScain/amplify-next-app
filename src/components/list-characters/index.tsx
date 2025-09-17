@@ -1,6 +1,7 @@
 "use client";
 
 import { CharacterInterface } from "@/types";
+import Link from "next/link";
 
 interface ListCharactersInterface {
   characters: CharacterInterface[];
@@ -17,17 +18,16 @@ export const ListCharacters = (props: ListCharactersInterface) => {
           characters.map((character, i) => {
             const { id, image_url, name } = character;
             return (
-              <div
-                key={`${id}-${i}`}
-                className="w-[175px] bg-neutral-400 rounded-xl border border-purple-800 p-[14px]"
-              >
-                <img
-                  src={image_url}
-                  alt={`Thumb nail character ${name}`}
-                  className="object-cover"
-                />
-                <span>{name}</span>
-              </div>
+              <Link key={`${id}-${i}`} href={`/next-calls/characters/${id}`}>
+                <div className="w-[175px] bg-neutral-400 rounded-xl border border-purple-800 p-[14px]">
+                  <img
+                    src={image_url}
+                    alt={`Thumb nail character ${name}`}
+                    className="object-cover"
+                  />
+                  <span>{name}</span>
+                </div>
+              </Link>
             );
           })}
       </div>

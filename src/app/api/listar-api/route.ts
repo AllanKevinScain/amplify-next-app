@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const request = await fetch(
-    "https://harry-potter-api-phi.vercel.app/api/characters",
-    {
-      method: "GET",
-    }
-  );
+  const request = await fetch(`${process.env.NEXTAUTH_URL}/api/characters`, {
+    method: "GET",
+  });
 
   const responseData = await request.json();
 
