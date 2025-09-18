@@ -12,7 +12,7 @@ export async function updateCharacter(
 ): Promise<{ message: string }> {
   const { id, values } = props;
   const request = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/characters/${id}`,
+    `${process.env.BASE_API_URL}/api/characters/${id}`,
     {
       method: "PUT",
       body: JSON.stringify(values),
